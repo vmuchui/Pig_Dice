@@ -4,5 +4,12 @@ $(document).ready (function(){
     $('#show').slideDown();
     $('#disappear').hide();
     $('.jumbotron').hide();
+    $('#nameOne').text(nameOne);
+    $('#nameTwo').text(nameTwo);
   });
 });
+var nameOne = new Player(document.getElementById('#name1').value);
+var nameTwo = new Player(document.getElementById('#name1').value);
+function Player(value){
+  this.name = name;
+}

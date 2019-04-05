@@ -19,6 +19,9 @@
         <h1>The Pig Dice</h1>
         <h3>Let's roooollll.... oink!!!!</h3>
         <p>Click on this <a href="https://en.wikipedia.org/wiki/Pig_(dice_game)" target="_blank">Link</a> to learn how to play pig dice!!!</p>
+        <div id="image">
+          <img src="images/dice_wallpaper.jpg" alt="dice" style="height: 150px;width: 150px;">
+        </div>
       </div>
       <br>
       <div class="col-xs-4 col-xs-offset-4">
@@ -33,25 +36,30 @@
         <h5 id="disappear">Awesome....<button class="btn btn-primary" id="play">play</button></h5>      
       </div>
       <br>
-      <div class="card-deck" id="show">
-        <div class="card col-xs-4" id="card1">
-          <h2 class="card-title text-center card-header" id="nameOne">Player One</h2>
-          <p class="card-text">You have rolled:</p>
-          <p class="card-text">Your score:</p>
-          <div class="card-footer">
+      <div class="row" id="show">
+        <div class="col-xs-6" id="card1">
+          <div class="card">
+            <h2 class="card-title text-center card-header"><span id="nameOne"></span></h2>
+            <p class="card-text">You have rolled:</p>
+            <p class="card-text">Your score:</p>
+            <div class="card-footer">
+                <button class="btn btn-success" id="roll">Roll</button>
+                <button class="btn btn-danger" id="hold">Hold</button>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="col-xs-6" id="card2">
+          <div class="card">
+            <h2 class="card-title text-center card-header"><span id="nameTwo"></span></h2>
+            <p class="card-text">You have rolled:</p>
+            <p class="card-text">Your score:</p>
+            <div class="card-footer">
               <button class="btn btn-success" id="roll">Roll</button>
               <button class="btn btn-danger" id="hold">Hold</button>
             </div>
-        </div>
-        <br><br>
-        <div class="card col-xs-offset-4" id="card2">
-          <h2 class="card-title text-center card-header" id="nameTwo">Player Two</h2>
-          <p class="card-text">You have rolled:</p>
-          <p class="card-text">Your score:</p>
-          <div class="card-footer">
-            <button class="btn btn-success" id="roll">Roll</button>
-            <button class="btn btn-danger" id="hold">Hold</button>
           </div>
+          
         </div>
         <button class="btn btn-warning" id="restart"><a id="start" href="index.html">Restart</a></button>
       </div>
