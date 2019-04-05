@@ -1,0 +1,25 @@
+body{
+  background-image: url(../images/);
+  background-position: center;
+  background-attachment: fixed;
+}
+.jumbotron{
+  background-image: url(../images/);
+}
+#play:hover{
+  color: black;
+  background-color: whitesmoke;
+  border: dotted;
+}
+
+#hide{
+  display: none;
+}
+#show{
+  display: none;
+}
+@media screen and (min-width: 480px){
+  .card{
+    max-width: 100%;
+  }
+}
