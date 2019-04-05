@@ -3,5 +3,6 @@ $(document).ready (function(){
     $('#hide').show();
     $('#show').slideDown();
     $('#disappear').hide();
+    $('.jumbotron').hide();
   });
 });

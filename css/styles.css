@@ -4,6 +4,7 @@ body{
   background-attachment: fixed;
 }
 .jumbotron{
+  margin-top: 10px;
   background-image: url(../images/);
 }
 #play:hover{
@@ -11,12 +12,35 @@ body{
   background-color: whitesmoke;
   border: dotted;
 }
-
-#hide{
-  display: none;
+#card1{
+  margin-left: 50px;
+  margin-right: 50px;
+  max-width: 560px;
+  margin-bottom: 20px;
+}
+#card2{
+  margin-right: 50px;
+  margin-left: 50px;
+  max-width: 560px;
+  margin-top: 10px;
 }
 #show{
   display: none;
+}
+#roll:hover{
+  color: black;
+  background-color: antiquewhite;
+}
+#hold:hover{
+  color: black;
+  background-color: antiquewhite;
+}
+#restart{
+  margin-top: 28px;
+  margin-left: 100px;
+}
+#start:hover{
+  color: black;
 }
 @media screen and (min-width: 480px){
   .card{
