@@ -27,6 +27,9 @@ body{
 #show{
   display: none;
 }
+.button-disable{
+  cursor: not-allowed;
+}
 #roll:hover{
   color: black;
   background-color: antiquewhite;

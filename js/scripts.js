@@ -39,11 +39,28 @@ $("#pl1-roll").click(
       return 0;
   }
 );
+$("#pl2-roll").click(
+  function(event){
+      var rolledDice=playerTwo.roll();
+      $("#pl2_dice").text(rolledDice);
+      $(".p1-session-score").text(playerTwo.scoreCurrent);
+      if(rolledDice===1){
+          return $("#pl2-hold").trigger("click");
+      }
+      if((playerTwo.scoreCurrent+playerTwo.yourScore) >= maxScore){
+          playerTwo.yourScore=playerTwo.scoreCurrent+playerTwo.yourScore;
+          return winGame(playerTwo);
+      }
+      return 0;
+  }
+);
 //gameplay functions
-var play = function(playerOneName,playerTwoName){
-  playerOne.name = playerOneName;
-  playerTwo.name = playerTwoName;
-  
+var play = function(){
+  $("#card2").addClass("card-disable");
+  $("#pl2-roll").addClass("button-disable");
+  $("#pl2-hold").addClass("button-disable");
+  return this;
+
 };
 $(document).ready (function(){
   $('#play').click (function(){
@@ -58,7 +75,7 @@ $(document).ready (function(){
       function(event){
           event.preventDefault();       
           maxScore = $("#winscore").val();
-          return play(playerOneName,playerTwoName);
+          return play();
       }
     );
     $('.form-group').hide();
