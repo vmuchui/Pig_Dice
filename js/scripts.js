@@ -6,13 +6,14 @@ function Player(){
 }
 var playerOne = new Player();
 var playerTwo = new Player();
-var maxScore = $("#winscore").val();
+var maxScore = parseFloat($("#winscore").val());
 //introducing the roll method
 Player.prototype.roll = function(){
   var dice = Math.floor(1 + Math.random()*6); //since you cant roll a zero I put the plus one
   if (dice>1){
     this.scoreCurrent += dice;
     this.yourScore += this.scoreCurrent;
+    
   }
   else{
     this.scoreCurrent = 0;
