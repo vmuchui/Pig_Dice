@@ -17,7 +17,7 @@ Player.prototype.roll = function(){
   else{
     this.scoreCurrent = 0;
   }
-  return this.yourScore;
+  return this.scoreCurrent;
 };
 //the hold method
 Player.prototype.hold = function(){
@@ -72,12 +72,12 @@ $(document).ready (function(){
     function(event){
         var rolledDice=playerOne.roll();
         $("#pl1_dice").text(rolledDice);
-        $(".p1-session-score").text(playerOne.scoreCurrent);
+        $("#pl1_score").text(playerOne.yourScore);
         if(rolledDice===1){
             return $("#pl1-hold").trigger("click");
         }
         if((playerOne.scoreCurrent+playerOne.yourScore) >= maxScore){
-            playerOne.yourScore=playerOne.scoreCurrent;
+            playerOne.yourScore=playerOne.scoreCurrent + playerOne.yourScore;
             return winGame(playerOne);
         }
         return 0;
@@ -87,7 +87,7 @@ $(document).ready (function(){
     function(event){
         var rolledDice=playerTwo.roll();
         $("#pl2_dice").text(rolledDice);
-        $(".p1-session-score").text(playerTwo.scoreCurrent);
+        $("#pl2_score").text(playerTwo.yourScore);
         if(rolledDice===1){
             return $("#pl2-hold").trigger("click");
         }
@@ -105,7 +105,7 @@ $(document).ready (function(){
         $("#pl2-hold").addClass("button-disable");
         $("#pl1-roll").removeClass("button-disable");
         $("#pl1-hold").removeClass("button-disable");
-        $(".pl1_score").text("Your score is: "+playerOne.totalScore);
+        $("#pl1_score").text(playerOne.totalScore);
         return 0;
     }
   );
@@ -116,7 +116,7 @@ $(document).ready (function(){
         $("#pl1-hold-button").addClass("button-disable");
         $("#pl2-roll-button").removeClass("button-disable");
         $("#pl2-hold-button").removeClass("button-disable");
-        $(".pl2_score").text("Your score is: "+playerOne.totalScore);
+        $("#pl2_score").text(playerOne.totalScore);
         return 0;
     }
   );

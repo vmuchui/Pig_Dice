@@ -15,6 +15,19 @@
 #### set-up
 * click the following [link]()**vmuchui** to the live site.
 * To access the project locally, clone the repository from Github into your computer using your terminal and launch the index.html file.
+# BDD
+* as a user;
+
+input        |ouput
+-------------|------------------
+click on the roll button|random number
+click on the hold button|passes to next player
+* code;
+
+generated number| score
+----------------|---------
+1|score is zero
+2-6|score is equal to the rolled value
 # Bugs
 * In case of any bugs found please create an issue or contact:
 ## Contact and Support Details
