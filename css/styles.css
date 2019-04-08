@@ -1,5 +1,5 @@
 body{
-  background-image: url(../images/);
+  background-image: url(../images/dices.jpg);
   background-position: center;
   background-attachment: fixed;
 }
@@ -7,10 +7,25 @@ body{
   margin-top: 10px;
   background-image: url(../images/);
 }
+#head{
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 56px;
+}
+#slogan{
+  font-family: 'Dokdo', cursive;
+}
 #play:hover{
   color: black;
   background-color: whitesmoke;
   border: dotted;
+}
+#nameOne{
+  font-family: 'Anton', sans-serif;
+
+}
+#nameTwo{
+  font-family: 'Anton', sans-serif;
+
 }
 #card1{
   margin-left: 50px;
