@@ -93,7 +93,7 @@ $(document).ready (function(){
             return $("#pl2-hold").trigger("click");
         }
         if((playerTwo.scoreCurrent+playerTwo.yourScore) >= maxScore){
-            playerTwo.yourScore=playerTwo.scoreCurrent+playerTwo.yourScore;
+            playerTwo.yourScore=playerTwo.scoreCurrent + playerTwo.yourScore;
             return winGame(playerTwo);
         }
         return 0;
