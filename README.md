@@ -13,7 +13,7 @@
 * internet connection
 * browser.
 #### set-up
-* click the following [link]()**vmuchui** to the live site.
+* click the following [link]() to the live site.
 * To access the project locally, clone the repository from Github into your computer using your terminal and launch the index.html file.
 # BDD
 * as a user;
