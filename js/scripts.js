@@ -7,19 +7,18 @@ function Player(){
 }
 var playerOne = new Player();
 var playerTwo = new Player();
-var maxScore = parseFloat($("#winscore").val());
+var maxScore = parseInt($("#winscore").val());
 //introducing the roll method
 Player.prototype.roll = function(){
   var dice = Math.floor(1 + Math.random()*6); //since you cant roll a zero I put the plus one
   if (dice>1){
     this.rolledScore = dice;
     this.scoreCurrent += this.rolledScore;
-    this.yourScore += this.scoreCurrent;
+    this.yourScore += this.rolledScore;
     
   }
   else{
     this.rolledScore = 0;
-    this.scoreCurrent = 0;
     this.yourScore = 0;
   }
   return this.scoreCurrent;
@@ -65,10 +64,11 @@ $(document).ready (function(){
     $('.jumbotron').hide();
     $('#nameOne').text($('#name1').val());
     $('#nameTwo').text($('#name2').val());
+           
+    maxScore = $("#winscore").val();
     $(".form-group").submit(
       function(event){
-          event.preventDefault();       
-          maxScore = $("#winscore").val();
+          event.preventDefault();
           return play();
       }
     );
@@ -98,8 +98,7 @@ $(document).ready (function(){
         if(rolledDice===1){
             return $("#pl2-hold").trigger("click");
         }
-        if((playerTwo.scoreCurrent+playerTwo.yourScore) >= maxScore){
-            playerTwo.yourScore=playerTwo.scoreCurrent + playerTwo.yourScore;
+        if( playerTwo.yourScore >= maxScore ){
             return winGame(playerTwo);
         }
         return 0;
