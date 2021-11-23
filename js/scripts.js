@@ -1,6 +1,7 @@
 //constructor for players
 function Player(){
   this.name = "";
+  this.rolledScore = 0;
   this.scoreCurrent = 0;
   this.yourScore = 0;
 }
@@ -11,19 +12,23 @@ var maxScore = parseFloat($("#winscore").val());
 Player.prototype.roll = function(){
   var dice = Math.floor(1 + Math.random()*6); //since you cant roll a zero I put the plus one
   if (dice>1){
-    this.scoreCurrent += dice;
+    this.rolledScore = dice;
+    this.scoreCurrent += this.rolledScore;
     this.yourScore += this.scoreCurrent;
     
   }
   else{
+    this.rolledScore = 0;
     this.scoreCurrent = 0;
+    this.yourScore = 0;
   }
   return this.scoreCurrent;
 };
 //the hold method
 Player.prototype.hold = function(){
-  this.yourScore += this.scoreCurrent;
+  
   this.scoreCurrent = 0;
+  this.yourScore += this.scoreCurrent;
   return this.yourScore;
 };
 var winGame = function(player){
@@ -72,13 +77,13 @@ $(document).ready (function(){
   $("#pl1-roll").click(
     function(event){
         var rolledDice=playerOne.roll();
+        $("#pl1_rolled").text(playerOne.rolledScore);
         $("#pl1_dice").text(rolledDice);
         $("#pl1_score").text(playerOne.yourScore);
         if(rolledDice===1){
             return $("#pl1-hold").trigger("click");
         }
-        if((playerOne.scoreCurrent+playerOne.yourScore) >= maxScore){
-            playerOne.yourScore=playerOne.scoreCurrent + playerOne.yourScore;
+        if((playerOne.yourScore) >= maxScore){
             return winGame(playerOne);
         }
         return 0;
@@ -87,6 +92,7 @@ $(document).ready (function(){
   $("#pl2-roll").click(
     function(event){
         var rolledDice=playerTwo.roll();
+        $("#pl2_rolled").text(playerTwo.rolledScore);
         $("#pl2_dice").text(rolledDice);
         $("#pl2_score").text(playerTwo.yourScore);
         if(rolledDice===1){
