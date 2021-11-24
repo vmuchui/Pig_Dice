@@ -7,20 +7,21 @@
     <link rel="shortcut icon" href="images/dices.jpg">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.css.map">
+    <link rel="stylesheet" href="css/bootstrap-grid.css.map">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css.map">
+    <link rel="stylesheet" href="css">
     <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/underscore.js"></script>
-    <script src="js/scripts.js"></script>
+    
   </head>
 
   <body>
     <div class="container">
       <div class="jumbotron text-center">
-        <h1 id="head">The Pig Dice</h1>
+        <h1 id="head">Pig Dice Game</h1>
         <h3 id="slogan">Let's roooollll.... oink!!!!</h3>
         <p>Click on this <a href="https://en.wikipedia.org/wiki/Pig_(dice_game)" target="_blank">Link</a> to learn how to play pig dice!!!</p>
       </div>
@@ -31,9 +32,9 @@
           <input class="form-control" id="name1" type="text" placeholder="name" required>  
           <label for="Player two">Player two:</label>
           <input class="form-control" id="name2" type="text" placeholder="name" required>
-          <label for="max score">Highest score:</label>
-          <input class="form-control" id="winscore" type="number" placeholder="maximum score" required>
-          <h5 id="disappear">Awesome....<button type="submit" class="btn btn-primary" id="play">play</button></h5>
+          <label for="max score">Winning score:</label>
+          <input class="form-control" id="winscore" type="number" placeholder="enter the winning score..." required>
+          <h5 id="disappear">Awesome let's ...<button type="submit" class="btn btn-primary" id="play">play</button></h5>
         </form>
               
       </div>
@@ -47,8 +48,13 @@
             <p class="card-text">You have rolled: <span id="pl1_dice"></span> so far!</p>
             <p class="card-text">Your score: <span id="pl1_score"></span></p>
             <div class="card-footer">
+              <a href="#show" type="button" class="btn btn-success" id="pl1-roll"> Roll </a>
+              <a href="#show" type="button" class="btn btn-danger" id="pl1-hold"> Hold </a>
+              <!--
                 <button class="btn btn-success" id="pl1-roll">Roll</button>
                 <button class="btn btn-danger" id="pl1-hold">Hold</button>
+              -->
+                
             </div>
           </div>
         </div>
@@ -60,8 +66,13 @@
             <p class="card-text">You have rolled: <span id="pl2_dice"></span> so far!</p>
             <p class="card-text">Your score: <span id="pl2_score"></span></p>
             <div class="card-footer">
-              <button class="btn btn-success" id="pl2-roll">Roll</button>
-              <button class="btn btn-danger" id="pl2-hold">Hold</button>
+              <a href="#show" type="button" class="btn btn-success disabled" id="pl2-roll"> Roll </a>
+              <a href="#show" type="button" class="btn btn-danger disabled" id="pl2-hold"> Hold </a>
+              <!--
+                <button class="btn btn-success" id="pl2-roll">Roll</button>
+                <button class="btn btn-danger" id="pl2-hold">Hold</button>
+              -->
+              
             </div>
           </div>
           
@@ -69,6 +80,10 @@
         <a href="index.html" class="btn btn-warning" id="restart">Restart</a>
       </div>
     </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/scripts.js"></script>
     
   </body>
 
