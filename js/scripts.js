@@ -8,6 +8,14 @@ function Player(){
 var playerOne = new Player();
 var playerTwo = new Player();
 var maxScore = parseInt($("#winscore").val());
+//the hold method
+Player.prototype.hold = function(){
+  
+  this.rolledScore = 0;
+
+  this.yourScore = this.scoreCurrent;
+  return this.yourScore;
+};
 //introducing the roll method
 Player.prototype.roll = function(){
   var dice = Math.floor(1 + Math.random()*6); //since you cant roll a zero I put the plus one
@@ -18,22 +26,18 @@ Player.prototype.roll = function(){
     
   }
   else{
+    this.scoreCurrent = 0;
     this.rolledScore = 0;
     this.yourScore = 0;
   }
   return this.scoreCurrent;
 };
-//the hold method
-Player.prototype.hold = function(){
-  
-  this.scoreCurrent = 0;
-  this.yourScore += this.scoreCurrent;
-  return this.yourScore;
-};
+
 var winGame = function(player){
+  $('#show').hide();
   $(".container").append(
   `
-  <div class="container">
+  <div class="container-fluid">
       <div class="wingame alert alert-success alert-dismissible">
           <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           <h3>`+player.name+` won the game with a score of `+player.yourScore+`</h3>
@@ -64,6 +68,7 @@ $(document).ready (function(){
     $('.jumbotron').hide();
     $('#nameOne').text($('#name1').val());
     $('#nameTwo').text($('#name2').val());
+    $('#max_score').text($('#winscore').val());
            
     maxScore = $("#winscore").val();
     $(".form-group").submit(
@@ -80,7 +85,7 @@ $(document).ready (function(){
         $("#pl1_rolled").text(playerOne.rolledScore);
         $("#pl1_dice").text(rolledDice);
         $("#pl1_score").text(playerOne.yourScore);
-        if(rolledDice===1){
+        if(rolledDice<1){
             return $("#pl1-hold").trigger("click");
         }
         if((playerOne.yourScore) >= maxScore){
@@ -95,7 +100,7 @@ $(document).ready (function(){
         $("#pl2_rolled").text(playerTwo.rolledScore);
         $("#pl2_dice").text(rolledDice);
         $("#pl2_score").text(playerTwo.yourScore);
-        if(rolledDice===1){
+        if(rolledDice<1){
             return $("#pl2-hold").trigger("click");
         }
         if( playerTwo.yourScore >= maxScore ){
@@ -107,22 +112,22 @@ $(document).ready (function(){
   $("#pl1-hold").click(
     function(event){
         playerOne.hold();
-        $("#pl2-roll").addClass("button-disable");
-        $("#pl2-hold").addClass("button-disable");
-        $("#pl1-roll").removeClass("button-disable");
-        $("#pl1-hold").removeClass("button-disable");
-        $("#pl1_score").text(playerOne.totalScore);
+        $("#pl1-roll").addClass("disabled");
+        $("#pl1-hold").addClass("disabled");
+        $("#pl2-roll").removeClass("disabled");
+        $("#pl2-hold").removeClass("disabled");
+        $("#pl1_score").text(playerOne.yourScore);
         return 0;
     }
   );
   $("#pl2-hold").click(
     function(event){
-        playerOne.hold();
-        $("#pl1-roll").addClass("button-disable");
-        $("#pl1-hold-button").addClass("button-disable");
-        $("#pl2-roll-button").removeClass("button-disable");
-        $("#pl2-hold-button").removeClass("button-disable");
-        $("#pl2_score").text(playerOne.totalScore);
+        playerTwo.hold();
+        $("#pl1-roll").removeClass("disabled");
+        $("#pl1-hold").removeClass("disabled");
+        $("#pl2-roll").addClass("disabled");
+        $("#pl2-hold").addClass("disabled");
+        $("#pl2_score").text(playerTwo.yourScore);
         return 0;
     }
   );
