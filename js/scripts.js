@@ -9,8 +9,7 @@ var playerTwo = new Player();
 var maxScore = parseInt($("#winscore").val());
 //the hold method
 Player.prototype.hold = function(){
-
-  this.yourScore = this.rolledScore;
+  this.rolledScore = 0;
   return this.yourScore;
 };
 //introducing the roll method
