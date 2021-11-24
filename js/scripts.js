@@ -58,8 +58,7 @@ var play = function(){
 
 };
 $(document).ready (function(){
-  playerOne.name = $('#name1').val();
-  playerTwo.name = $('#name2').val();
+ 
   $('#play').click (function(){
     event.preventDefault();
     $('#hide').show();
@@ -71,6 +70,8 @@ $(document).ready (function(){
     $('#max_score').text($('#winscore').val());
            
     maxScore = $("#winscore").val();
+    playerOne.name = $('#name1').val();
+    playerTwo.name = $('#name2').val();
     $(".form-group").submit(
       function(event){
           event.preventDefault();
